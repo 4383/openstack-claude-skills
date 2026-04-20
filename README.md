@@ -2,6 +2,24 @@
 
 Custom Claude Code skills for OpenStack development workflows.
 
+## Table of Contents
+
+- [About](#about)
+- [Skills](#skills)
+  - [openstack-review](#openstack-review)
+- [Installation](#installation)
+  - [Method 1: Plugin Marketplace (Recommended)](#method-1-plugin-marketplace-recommended)
+  - [Method 2: Manual Installation (Development)](#method-2-manual-installation-development)
+  - [Method 3: Local Marketplace](#method-3-local-marketplace)
+  - [Verify Installation](#verify-installation)
+- [Development](#development)
+  - [Adding New Skills](#adding-new-skills)
+  - [Skill Format](#skill-format)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
 ## About
 
 This repository contains custom skills for [Claude Code](https://claude.ai/code) that enhance the development experience when working with OpenStack projects.
