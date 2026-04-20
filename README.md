@@ -7,6 +7,7 @@ Custom Claude Code skills for OpenStack development workflows.
 - [About](#about)
 - [Skills](#skills)
   - [openstack-review](#openstack-review)
+  - [openstack-backport](#openstack-backport)
 - [Installation](#installation)
   - [Method 1: Plugin Marketplace (Recommended)](#method-1-plugin-marketplace-recommended)
   - [Method 2: Manual Installation (Development)](#method-2-manual-installation-development)
@@ -51,6 +52,36 @@ review this openstack patch <change-id>
 - `review openstack change 123456`
 - `check this gerrit patch 999999`
 
+### openstack-backport
+
+Analyze commits to identify backport candidates for OpenStack stable branches based on the official backport policy.
+
+**Usage:**
+```
+check backports for the last 15 commits
+what needs backporting to stable branches since 2024.1?
+find backport candidates from the last month
+```
+
+**Features:**
+- Fetches maintained branch status from OpenStack releases repository
+- Supports flexible commit range specification (by count, tag, date, or range)
+- Parses bug references from OpenStack commit messages (Closes-Bug, Partial-Bug, Related-Bug)
+- Queries Launchpad API to verify bug priorities
+- Enforces OpenStack backport policy (only Critical/High priority bugs qualify)
+- Checks if commits are already backported to avoid duplicate work
+- Generates comprehensive reports with:
+  - Summary statistics
+  - Backport candidates grouped by commit and by branch
+  - Excluded commits with reasons (Medium/Low priority, no bug reference, features)
+  - Executable cherry-pick commands for each stable branch
+
+**Examples:**
+- `check the last 20 commits for backport candidates`
+- `what needs backporting to stable branches since 2024.1?`
+- `find backport candidates between 2023.2 and HEAD`
+- `show me what commits should go to stable/2024.1`
+
 ## Installation
 
 ### Method 1: Plugin Marketplace (Recommended)
@@ -62,9 +93,10 @@ If this repository is hosted on GitHub, you can install skills via the plugin ma
    /plugin marketplace add <github-username>/openstack-claude-skills
    ```
 
-2. Install the skill:
+2. Install skills:
    ```
    /plugin install openstack-review@openstack-skills
+   /plugin install openstack-backport@openstack-skills
    ```
 
 ### Method 2: Manual Installation (Development)
@@ -79,6 +111,7 @@ For local development or if you want to modify the skills:
 2. Create symlinks to Claude's skills directory:
    ```bash
    ln -s ~/dev/openstack-claude-skills/openstack-review ~/.claude/skills/openstack-review
+   ln -s ~/dev/openstack-claude-skills/openstack-backport ~/.claude/skills/openstack-backport
    ```
 
 3. Restart Claude Code or reload skills (skills are loaded automatically)
@@ -104,11 +137,14 @@ You can also add your local repository as a marketplace:
 2. Install skills:
    ```
    /plugin install openstack-review@openstack-skills
+   /plugin install openstack-backport@openstack-skills
    ```
 
 ### Verify Installation
 
-After installation, the skills should appear in Claude Code's available skills list. You can verify by asking Claude to review an OpenStack patch.
+After installation, the skills should appear in Claude Code's available skills list. You can verify by:
+- Asking Claude to review an OpenStack patch
+- Asking Claude to check backport candidates in an OpenStack repository
 
 ## Development
 
