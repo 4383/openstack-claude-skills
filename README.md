@@ -35,12 +35,23 @@ review this openstack patch <change-id>
 
 ## Installation
 
-### Prerequisites
+### Method 1: Plugin Marketplace (Recommended)
 
-- [Claude Code](https://claude.ai/code) installed
-- Git
+If this repository is hosted on GitHub, you can install skills via the plugin marketplace:
 
-### Setup
+1. Add the marketplace to Claude Code:
+   ```
+   /plugin marketplace add <github-username>/openstack-claude-skills
+   ```
+
+2. Install the skill:
+   ```
+   /plugin install openstack-review@openstack-skills
+   ```
+
+### Method 2: Manual Installation (Development)
+
+For local development or if you want to modify the skills:
 
 1. Clone this repository:
    ```bash
@@ -53,6 +64,29 @@ review this openstack patch <change-id>
    ```
 
 3. Restart Claude Code or reload skills (skills are loaded automatically)
+
+### Method 3: Local Marketplace
+
+You can also add your local repository as a marketplace:
+
+1. Edit your Claude Code settings (`~/.claude/settings.json`):
+   ```json
+   {
+     "extraKnownMarketplaces": {
+       "openstack-skills": {
+         "source": {
+           "source": "local",
+           "path": "/home/your-username/dev/openstack-claude-skills"
+         }
+       }
+     }
+   }
+   ```
+
+2. Install skills:
+   ```
+   /plugin install openstack-review@openstack-skills
+   ```
 
 ### Verify Installation
 

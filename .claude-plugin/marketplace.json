@@ -1,0 +1,22 @@
+{
+  "name": "openstack-skills",
+  "owner": {
+    "name": "Hervé Beraud",
+    "email": "herveberaud.pro@gmail.com"
+  },
+  "metadata": {
+    "description": "Claude Code skills for OpenStack development workflows",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "openstack-development",
+      "description": "Skills for OpenStack development, code review, and automation",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "openstack-review"
+      ]
+    }
+  ]
+}
