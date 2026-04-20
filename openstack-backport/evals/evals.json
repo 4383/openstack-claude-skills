@@ -1,0 +1,23 @@
+{
+  "skill_name": "openstack-backport",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "hey can you check the last 15 commits on master and tell me which ones should be backported to our stable branches? I need to know which bugs are critical or high priority",
+      "expected_output": "A structured report showing: (1) list of maintained stable branches from series_status.yaml, (2) commits with Critical/High bugs from Launchpad, (3) which branches need each commit, (4) cherry-pick commands, (5) excluded commits with reasons",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "I need to figure out what commits from the last 2 months should go to stable/2024.1. Can you analyze commits since march 1st 2024 and show me the backport candidates? Also let me know if any are already backported",
+      "expected_output": "A report filtered for commits since 2024-03-01, showing: (1) commits that qualify for backport based on bug priority, (2) which are already in stable/2024.1, (3) which still need backporting, (4) summary statistics",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "what needs backporting since the 2023.2 release? check all commits between that tag and HEAD, verify bug priorities in launchpad, and give me a breakdown by stable branch with the cherry-pick commands i need to run",
+      "expected_output": "A comprehensive report showing: (1) commits between 2023.2 tag and HEAD, (2) bug references parsed from commit messages, (3) Launchpad API queries for bug priorities, (4) backport candidates grouped by target branch, (5) executable cherry-pick command sequences",
+      "files": []
+    }
+  ]
+}
