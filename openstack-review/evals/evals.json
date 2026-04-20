@@ -1,0 +1,23 @@
+{
+  "skill_name": "openstack-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "review this openstack ticket 981750",
+      "expected_output": "A comprehensive review report with: summary of the patch, categorized issues (BLOCKING/SUGGESTION/NIT), inline comments in file:line format, analysis of code quality, tests, documentation, and commit message. Output should be plain text ready to paste into Gerrit.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "hey can you review openstack patch 934521? it's supposed to fix a race condition in the oslo.utils timeutils module and i want to make sure it's good",
+      "expected_output": "A detailed review focusing on the race condition fix, with special attention to concurrency issues, thread safety, and test coverage. Should include the standard categorized format with inline comments.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "check change 927650 on gerrit. i think it might have security issues in the way it handles user input",
+      "expected_output": "A security-focused review highlighting any vulnerabilities (injection, XSS, resource leaks, etc.), plus standard code quality checks. Should flag security issues as BLOCKING if found.",
+      "files": []
+    }
+  ]
+}
